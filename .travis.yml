@@ -1,0 +1,9 @@
+sudo: required
+services:
+    - docker
+
+#the tag here doesn't really matter
+#but it's good convention
+before_install:
+    - docker build -t peterprjevara/docker-react -f Dockerfile.dev .
+
