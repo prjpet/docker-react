@@ -9,6 +9,9 @@ RUN npm run build
 
 #from statements are terminating each successive block
 FROM nginx
-COPY --from=builder /app/build /usr/share/nginx/html
 
+#elasticbeanstalk looks for this port, other things don't
+EXPOSE 80
+
+COPY --from=builder /app/build /usr/share/nginx/html
 #default command for nginx is already start
